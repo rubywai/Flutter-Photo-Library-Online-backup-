@@ -41,6 +41,10 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>Photo Library Access Warning</string>
+	<key>NSCameraUsageDescription</key>
+    <string>Photo Library Access Warning</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>Photo Library Access Warning</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
