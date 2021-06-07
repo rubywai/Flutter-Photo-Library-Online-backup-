@@ -50,13 +50,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<void> deleteImage(id) async {
+  Future<void> deleteImage(id, token) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'access_token': token};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(
         Options(method: 'DELETE', headers: <String, dynamic>{}, extra: _extra)
-            .compose(_dio.options, 'https://api.gyazo.com/api/images:$id',
+            .compose(_dio.options, 'https://api.gyazo.com/api/images/$id',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;

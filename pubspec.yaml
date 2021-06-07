@@ -32,6 +32,7 @@ dependencies:
   image_picker: ^0.8.0+1
   logger :
   cached_network_image: ^3.0.0
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_library/const.dart';
+import 'package:flutter_image_library/controller/UploadController.dart';
 import 'package:flutter_image_library/data/api_service.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UploadScreen extends StatefulWidget {
@@ -16,15 +18,7 @@ class _UploadScreenState extends State<UploadScreen> {
   bool _visibleImage = false;
   bool _visiblecomplete = false;
   StreamController<double> _controller = StreamController();
-  var log = LogInterceptor(
-      requestBody: true, logPrint: (log) => print(log), responseBody: true);
-  ApiService _apiService = ApiService(
-      Dio()
-        ..interceptors.add(LogInterceptor(
-            requestBody: true,
-            logPrint: (log) => print(log),
-            responseBody: true)),
-      baseUrl: Const.uploadUrl);
+  UploadController _uploadController = Get.put(UploadController());
   @override
   Widget build(BuildContext context) {
     print('app');
@@ -48,40 +42,29 @@ class _UploadScreenState extends State<UploadScreen> {
             child: ElevatedButton(
               child: Text('Upload'),
               onPressed: () {
-                print('Upoad');
-                _apiService.uploadImage(_image!, Const.token,
-                    callBack: (send, total) {
-                  double  percentage =  (send/total);
-                  print('upload percentage is $percentage');
-                  _controller.sink.add(percentage);
-                }).then((value){
-                  setState(() {
-                    _visiblecomplete = true;
-                    _visibleImage = false;
-                  });
-                });
+                _uploadController.upload(_image!);
               },
             ),
           ),
-          Visibility(
-              visible: _visibleImage,
-              child: StreamBuilder<double>(
-                stream: _controller.stream,
-                builder: (context, data) {
-                  if (data.hasData) {
-                    return Column(children: [
-                      LinearProgressIndicator(value: data.data,),
-                      Text('Uploading ${(data.data! *100).toInt()} %')
-                    ],);
-                  }
-                  return Center();
-                },
-              )),
-              Visibility(
-                visible: _visiblecomplete,
-                child: ElevatedButton(child: Text('Complete'),onPressed: (){
-                    Navigator.pop(context,'complete');
-                },))
+          Obx((){
+            if(_uploadController.uploading.value)
+            return Column(children: [
+              LinearProgressIndicator(value: _uploadController.percentage.value,),
+              Text('Uploading ${(_uploadController.percentage *100).toInt()} %')
+            ],);
+            return Center();
+          }),
+          Obx((){
+            if(_uploadController.complete.value)
+            return ElevatedButton(
+                child: Text('Complete'),
+                onPressed: () {
+                  Get.back(result: 'complete',);
+                }
+            );
+            return Center();
+            }
+            ),
 
         ]),
       ),

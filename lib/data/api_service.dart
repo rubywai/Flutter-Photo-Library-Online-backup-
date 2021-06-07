@@ -18,7 +18,8 @@ abstract class ApiService{
   {@SendProgress() ProgressCallback? callBack}
   );
 
-  @DELETE('${Const.baseUrl}/images:{id}')
-  Future<void> deleteImage(@Path('id') String id);
+  @DELETE('${Const.baseUrl}/images/{id}')
+   Future<void> deleteImage(@Path('id') String id,
+      @Query('access_token') String token);
 
 }
