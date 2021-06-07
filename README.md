@@ -6,7 +6,7 @@ A new Flutter project.
 
 This is the photo library app user can upload and display photos(photo api using www.gyazo.com api)
 User can see progress(percentage) in image uploading.
-Rest Api fetching and image upoading using Retrofit and GetX for state management.
+Rest Api fetching and image upoad for Retrofit and GetX for state management.
 
 ## Using Library
 
