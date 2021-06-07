@@ -25,8 +25,8 @@ class ListItem extends StatelessWidget {
               _listController.deletePhoto(_photo.imageId!);
             }, icon: Icon(Icons.delete)),
           ),
-          Text(_photo.type!),
-          Text(_photo.createdAt!),
+          Text('Image Type - ${_photo.type!}'),
+          Text('Date created - ${_photo.createdAt!}'),
           CachedNetworkImage(
             height: 200,
             fit: BoxFit.fitWidth,

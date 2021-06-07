@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_library/controller/HomeController.dart';
 import 'package:flutter_image_library/ui/screen/upload_screen.dart';
 import 'package:flutter_image_library/ui/widget/item_widget.dart';
+import 'package:flutter_image_library/ui/widget/shimmer_loading.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -51,9 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Obx((){
-          if(_listController.ref.value){
-            return CircularProgressIndicator();
-          }
           if(!_listController.photoList.isBlank!){
             return ListView.builder(
                 itemCount: _listController.photoList.value.length,
@@ -65,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Text('Error');
           }
 
-          return CircularProgressIndicator();
+          return Loading();
         }),
       ),
     );
