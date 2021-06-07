@@ -12,8 +12,4 @@ This is the photo library app users can upload and display photos(using gyazo.co
 -GetX
 -Shimmer 
 
-![alt text](https://github.com/Rubywai/flutter_image_uploading_tutorial/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-07%20at%2017.56.51.png)
-
-![alt text](https://github.com/Rubywai/flutter_image_uploading_tutorial/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-07%20at%2017.56.32.png)
-
-![alt text](https://github.com/Rubywai/flutter_image_uploading_tutorial/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-07%20at%2017.55.08.png)
+|  <img src="https://media.wired.com/photos/5926db217034dc5f91becd6b/master/w_582,c_limit/so-logo-s.jpg" width="250"> |  <img src="https://mk0jobadderjftub56m0.kinstacdn.com/wp-content/uploads/stackoverflow.com-300.jpg" width="250"> |
