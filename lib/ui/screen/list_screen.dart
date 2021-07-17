@@ -5,13 +5,14 @@ import 'package:flutter_image_library/ui/screen/upload_screen.dart';
 import 'package:flutter_image_library/ui/widget/item_widget.dart';
 import 'package:flutter_image_library/ui/widget/shimmer_loading.dart';
 import 'package:get/get.dart';
-
+import '../../module.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   ListController _listController = Get.put(ListController());
   @override
   void initState() {
@@ -62,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           else if(_listController.error.value){
             return Text('Error');
           }
-
+          print(_listController.error.value);
           return Loading();
         }),
       ),

@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rubylearner.flutter_image_library">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="flutter_image_library"
         android:icon="@mipmap/ic_launcher">

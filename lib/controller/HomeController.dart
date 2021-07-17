@@ -5,9 +5,10 @@ import 'package:flutter_image_library/data/model/read/read_model.dart';
 import 'package:get/get.dart';
 
 import '../const.dart';
-
+import '../module.dart';
 class ListController extends GetxController{
-  ApiService _apiService = Get.find();
+
+
   var error = false.obs;
   var ref = false.obs;
   var deleting = false.obs;
@@ -16,18 +17,24 @@ class ListController extends GetxController{
   void onInit() {
     super.onInit();
   }
-  void getPhotos() {
+  void getPhotos() async{
+    await locator();
+    ApiService _apiService  = Get.find();
     ref.value = true;
     _apiService.getImages(Const.token)
         .then((List<Photo> photos){
           error.value = false;
+          ref.value = false;
           photoList.value = photos;
     })
-        .catchError((error){
+        .catchError((e){
+          print("This is Error");
           error.value = true;
-    }).whenComplete(() => ref.value = false);
+          ref.value = false;
+    });
   }
   void deletePhoto(String imageId){
+    ApiService _apiService  = Get.find();
     deleting.value = true;
     _apiService.deleteImage(imageId, Const.token)
         .then((value){
