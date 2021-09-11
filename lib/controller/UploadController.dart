@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_image_library/const.dart';
-import 'package:flutter_image_library/data/api_service.dart';
+import 'package:flutter_image_library/data/service/api_service.dart';
 import 'package:get/get.dart';
 
 class UploadController extends GetxController {

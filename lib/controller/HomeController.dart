@@ -1,6 +1,6 @@
 
 
-import 'package:flutter_image_library/data/api_service.dart';
+import 'package:flutter_image_library/data/service/api_service.dart';
 import 'package:flutter_image_library/data/model/read/read_model.dart';
 import 'package:get/get.dart';
 

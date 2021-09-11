@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_library/const.dart';
 import 'package:flutter_image_library/controller/UploadController.dart';
-import 'package:flutter_image_library/data/api_service.dart';
+import 'package:flutter_image_library/data/service/api_service.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 

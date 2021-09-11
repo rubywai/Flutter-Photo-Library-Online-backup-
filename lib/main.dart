@@ -10,20 +10,13 @@ import 'package:get/get.dart';
   ));
 }
 
-class MyApp extends StatefulWidget {
-   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // ignore: non_constant_identifier_names
+class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-     home: HomeScreen(),
+      home: HomeScreen(),
     );
   }
-
-
 }
+
